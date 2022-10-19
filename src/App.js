@@ -12,8 +12,8 @@ function App() {
           <li className='navbar-icon-text'>PokeInfo</li>
         </ul>
         <ul className="navbar-items-container">
-          <li>Inicio</li>
-          <li>Contacto</li>
+          <li><a href='#'>Inicio</a></li>
+          <li><a href='#'>Contacto</a></li>
         </ul>
       </div>
       <div className='body'>
