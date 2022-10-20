@@ -13,11 +13,12 @@ body {
 .navbar{
   width: 90vw;
   height: 10vh;
-  display: inline-flex;
+  display: flex;
+  flex-flow: row ;
 }
 
 .navbar-Icon{
-  width: 5vw;
+  width: 5.5vw;
 }
 
 
@@ -37,7 +38,7 @@ body {
 
 .navbar-icon-text{
   margin-top: 1.5vw;
-  font-size: 22px;
+  font-size: 20px;
   
 }
 
@@ -46,12 +47,12 @@ body {
     width: 4vw;
     margin-left:31vw;
     margin-top: 5vh;
-
+    display: flex;
+    flex-direction: row;
+    list-style: none;
 }
 
 .navbar-items-container li{
-    display: inline;
-    position: initial;
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
     margin-left: 50%;
@@ -61,4 +62,39 @@ body {
 .navbar-items-container li a{
   text-decoration: none;
   color: white;
+}
+
+
+/* ------------BODY STYLE---------- */
+.body{
+  border: 1px yellow solid;
+  display: flex;
+  flex-flow: row;
+}
+
+.body-trainerImg{
+  width: 11vw;
+  border: 1px rgb(255, 0, 212) solid;
+  margin-top: 20.1vh;
+  margin-left: 5.8vw;
+}
+
+.body-textGlove{
+  width: 11vw;
+  transform: rotate(90deg);
+  border: 1px green solid;
+  margin-bottom:15vw;
+  margin-right: 10vw ;
+  
+}
+
+.body-pokesearch{
+  background: white;
+  border-radius: 2.5%;
+  padding: 1.4%;
+
+}
+
+.body-pokesearch-bar{
+
 }
