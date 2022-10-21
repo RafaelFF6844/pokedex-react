@@ -3,6 +3,7 @@ import './App.css';
 import navIcon from '../src/img/pokedex.png';
 import trainerImg from '../src/img/trainer.png';
 import textGlove from '../src/img/globoTexto.png';
+import {cargarPokemons} from '../src/js/api.js'
 
 
 function App() {
@@ -20,12 +21,17 @@ function App() {
         </ul>
       </div>
       <div className='body'>
-        <div>
-          <img src={trainerImg} className='body-trainerImg'></img>
-          <img src={textGlove} className='body-textGlove'></img>
+        <div className='body-img'>
+          <img src={trainerImg} className='body-img-trainerImg'></img>
+          <img src={textGlove} className='body-img-textGlove'></img>
         </div>
         <div className='body-pokesearch'>
-          <input type="text" className='body-pokesearch-bar' id='body-pokesearch-bar'></input>
+          <h2>Bienvenido a PokeInfo</h2>
+          <h4>!Busca a tu Pokemon favorito!</h4>
+          <input type="text" onKeyUp={cargarPokemons} className='form-control body-pokesearch-bar' id='body-pokesearch-bar'></input>
+          <div className='body-pokesearch-content'>
+
+          </div>
         </div>
       </div>
     </div>

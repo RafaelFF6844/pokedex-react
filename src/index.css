@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 0%;
   background: rgb(211,16,16);
   background: linear-gradient(90deg, rgba(211,16,16,1) 0%, rgba(211,16,50,1) 35%, rgba(237,54,110,1) 100%);
 }
@@ -72,29 +72,51 @@ body {
   flex-flow: row;
 }
 
-.body-trainerImg{
+.body-img-trainerImg{
   width: 11vw;
-  border: 1px rgb(255, 0, 212) solid;
+
   margin-top: 20.1vh;
   margin-left: 5.8vw;
 }
 
-.body-textGlove{
+.body-img-textGlove{
   width: 11vw;
   transform: rotate(90deg);
-  border: 1px green solid;
   margin-bottom:15vw;
-  margin-right: 10vw ;
-  
+  position: absolute;
+  top: 28.5%;
+  left: 15.3%;
 }
 
 .body-pokesearch{
   background: white;
+  border: 5px black solid;
   border-radius: 2.5%;
   padding: 1.4%;
-
+  margin-left: 6%;
 }
 
-.body-pokesearch-bar{
+.body-pokesearch h2{
+  font-family: bebas;
+  font-stretch: extra-condensed;
+}
+.body-pokesearch h4{
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
+}
 
+
+.body-pokesearch-bar{
+  width: 80%;
+  margin-left: 3%;
+}
+
+.body-pokesearch-content{
+  background: blue;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@font-face {
+  font-family: bebas;
+  src: url(/src/fonts/BebasNeue-Regular.ttf);
 }
