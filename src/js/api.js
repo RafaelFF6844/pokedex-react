@@ -1,3 +1,26 @@
+import BugIC_Big from '../img/BugIC_Big.png';
+import DarkIC_Big from '../img/DarkIC_Big.png';
+import DragonIC_Big from '../img/DragonIC_Big.png';
+import ElectricIC_Big from '../img/ElectricIC_Big.png';
+import FairyIC_Big from '../img/FairyIC_Big.png';
+import FightingIC_Big from '../img/FightingIC_Big.png';
+import FireIC_Big from '../img/FireIC_Big.png';
+import FlyingIC_Big from '../img/FlyingIC_Big.png';
+import GhostIC_Big from '../img/GhostIC_Big.png';
+import GrassIC_Big from '../img/GrassIC_Big.png';
+import GroundIC_Big from '../img/GroundIC_Big.png';
+import IceIC_Big from '../img/IceIC_Big.png';
+import NormalIC_Big from '../img/NormalIC_Big.png';
+import PoisonIC_Big from '../img/PoisonIC_Big.png';
+import PsychicIC_Big from '../img/PsychicIC_Big.png';
+import RockIC_Big from '../img/RockIC_Big.png';
+import SteelIC_Big from '../img/SteelIC_Big.png';
+import UnknownIC_Big from '../img/UnknownIC_Big.png';
+import WaterIC_Big from '../img/WaterIC_Big.png';
+
+
+
+
 export function cargarPokemons (){
     var bartxt = document.getElementById('body-pokesearch-bar').value;
     console.log(bartxt);
@@ -29,17 +52,105 @@ export function cargarTodosPokemons () {
             var temp_name = data[i].name;
             dataPk(temp_name)
         }
-        /*var PrincipalDiv = document.getElementsByClassName("body-pokesearch-content");*/
+        
         
         
     })
 }
 
 function dataPk(name){
-    console.log(name)
     fetch("https://pokeapi.co/api/v2/pokemon/"+ name)
     .then(res => res.json() )
-    .then(response => {
-        console.log(response.types[0].type.name)
+    .then(data => {
+
+        /* Utilities */
+        var bimg_path = "IC_Big"
+
+        var type = data.types[0].type.name.charAt(0).toUpperCase() + data.types[0].type.name.slice(1);
+        var typeRute = type + bimg_path;
+        typeRute = verfType(typeRute)
+        console.log(typeRute)
+        
+
+        /* Components */
+        var home = document.getElementById("body-pokesearch-content");
+
+        var principalDiv = document.createElement('div')
+
+        var nombre = document.createElement('p')
+        nombre.setAttribute('value',data.name)
+
+        var sprite = document.createElement('img')
+        sprite.setAttribute('src',data.sprites.front_default)
+
+        
+        var tp1 = document.createElement('img')
+        tp1.setAttribute('src',typeRute)
+
+        var tp2 = document.createElement('img')
+
+        home.appendChild(sprite);        
+        home.appendChild(tp1);        
+
+
+        if (data.types[1] != null || data.types[1] != "undefined"){
+            var type2 = data.types[1].type.name.charAt(0).toUpperCase() + data.types[1].type.name.slice(1);
+            typeRute = type2 + bimg_path;
+            typeRute = verfType(typeRute)
+            tp2.setAttribute('src',typeRute)
+            home.appendChild(tp2);        
+
+
+        }
+
+        home.appendChild(nombre);        
+
+
+
+
     }) 
+}
+
+
+function verfType(ntype){
+    if (ntype== 'BugIC_Big' ){
+        ntype = BugIC_Big
+    }
+    if (ntype== 'DarkIC_Big' ){
+        ntype = DarkIC_Big
+    }if (ntype== 'DragonIC_Big' ){
+        ntype = DragonIC_Big
+    }if (ntype== 'ElectricIC_Big' ){
+        ntype = ElectricIC_Big
+    }if (ntype== 'FairyIC_Big' ){
+        ntype = FairyIC_Big
+    }if (ntype== 'FightingIC_Big' ){
+        ntype = FightingIC_Big
+    }if (ntype== 'FireIC_Big' ){
+        ntype = FireIC_Big
+    }if (ntype== 'FlyingIC_Big' ){
+        ntype = FlyingIC_Big
+    }if (ntype== 'GhostIC_Big' ){
+        ntype = GhostIC_Big
+    }if (ntype== 'GrassIC_Big' ){
+        ntype = GrassIC_Big
+    }if (ntype== 'IceIC_Big' ){
+        ntype = IceIC_Big
+    }if (ntype== 'NormalIC_Big' ){
+        ntype = NormalIC_Big
+    }if (ntype== 'PoisonIC_Big' ){
+        ntype = PoisonIC_Big
+    }if (ntype== 'PsychicIC_Big' ){
+        ntype = PsychicIC_Big
+    }if (ntype== 'RockIC_Big' ){
+        ntype = RockIC_Big
+    }if (ntype== 'SteelIC_Big' ){
+        ntype = SteelIC_Big
+    }if (ntype== 'UnknownIC_Big' ){
+        ntype = UnknownIC_Big
+    }if (ntype== 'WaterIC_Big' ){
+        ntype = WaterIC_Big
+    }
+
+    return ntype
 }

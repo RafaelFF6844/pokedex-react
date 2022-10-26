@@ -30,7 +30,7 @@ function App() {
           <h2>Bienvenido a PokeInfo</h2>
           <h4>!Busca a tu Pokemon favorito!</h4>
           <input type="text" onKeyUp={cargarTodosPokemons} className='form-control body-pokesearch-bar' id='body-pokesearch-bar'></input>
-          <div className='body-pokesearch-content'>
+          <div className='body-pokesearch-content' id='body-pokesearch-content'>
 
           </div>
         </div>
