@@ -111,10 +111,32 @@ body {
 }
 
 .body-pokesearch-content{
-  background: blue;
   display: flex;
   flex-flow: row wrap;
 }
+
+.pk-type1{
+  width: 45px;
+  height: 45px;
+}
+
+.pk-type2{
+  width: 45px;
+  height: 45px;
+}
+
+.pk-sprite{
+
+}
+
+.pk-name{
+  
+}
+
+.pk{
+  padding: 1%;
+}
+
 
 @font-face {
   font-family: bebas;

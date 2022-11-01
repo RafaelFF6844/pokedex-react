@@ -36,11 +36,11 @@ export function cargarPokemons (){
 
 
 
-export function cargarTodosPokemons () {
+export async function cargarTodosPokemons () {
     var startNo = Math.floor(Math.random() * 898) + 1;
     /*https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0*/
     var bartxt = "https://pokeapi.co/api/v2/pokemon/?limit=10&offset="+startNo;
-    fetch(bartxt)
+    await fetch(bartxt)
     .then(res => res.json())
     .then(response =>{
         console.log(startNo)
@@ -50,6 +50,7 @@ export function cargarTodosPokemons () {
 
         for(var i = 0; i <= response.results.length; i++){
             var temp_name = data[i].name;
+            console.log(temp_name)
             dataPk(temp_name)
         }
         
@@ -58,8 +59,8 @@ export function cargarTodosPokemons () {
     })
 }
 
-function dataPk(name){
-    fetch("https://pokeapi.co/api/v2/pokemon/"+ name)
+async function dataPk(name){
+    await fetch("https://pokeapi.co/api/v2/pokemon/"+ name)
     .then(res => res.json() )
     .then(data => {
 
@@ -76,34 +77,42 @@ function dataPk(name){
         var home = document.getElementById("body-pokesearch-content");
 
         var principalDiv = document.createElement('div')
+        principalDiv.setAttribute('class','pk')
 
         var nombre = document.createElement('p')
-        nombre.setAttribute('value',data.name)
+        nombre.setAttribute('class','pk-name')
+        nombre.textContent=data.name
 
         var sprite = document.createElement('img')
         sprite.setAttribute('src',data.sprites.front_default)
+        sprite.setAttribute('class','pk-sprite')
+
 
         
         var tp1 = document.createElement('img')
         tp1.setAttribute('src',typeRute)
+        tp1.setAttribute('class','pk-type1')
 
         var tp2 = document.createElement('img')
 
-        home.appendChild(sprite);        
-        home.appendChild(tp1);        
+        home.appendChild(principalDiv);
+        principalDiv.appendChild(sprite);        
+        principalDiv.appendChild(tp1);        
 
 
-        if (data.types[1] != null || data.types[1] != "undefined"){
+        if (data.types[1] != null && data.types[1] != "undefined"){
             var type2 = data.types[1].type.name.charAt(0).toUpperCase() + data.types[1].type.name.slice(1);
             typeRute = type2 + bimg_path;
             typeRute = verfType(typeRute)
             tp2.setAttribute('src',typeRute)
-            home.appendChild(tp2);        
+            tp2.setAttribute('class','pk-type2')
+
+            principalDiv.appendChild(tp2);        
 
 
         }
 
-        home.appendChild(nombre);        
+        principalDiv.appendChild(nombre);        
 
 
 
@@ -150,6 +159,8 @@ function verfType(ntype){
         ntype = UnknownIC_Big
     }if (ntype== 'WaterIC_Big' ){
         ntype = WaterIC_Big
+    }if (ntype== 'GroundIC_Big' ){
+        ntype = GroundIC_Big
     }
 
     return ntype
